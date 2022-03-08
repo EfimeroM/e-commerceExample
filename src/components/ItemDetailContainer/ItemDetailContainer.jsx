@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { stock } from '../../data/stock'
 import { getStock } from '../helpers/getStock'
-import { ItemList } from './ItemList'
-import './ItemListContainer.scss'
-export const ItemListContainer = () => {
+import { ItemDetail } from './ItemDetail'
+import './ItemDetailContainer.scss'
 
-    const [items, setItems] = useState([]) //en esta variable de estado vamos a guardar los productos, la inicializamos como un array poniendole los corchetes []
-    const [loading, setLoading] = useState(false) //declaramos la variable de loading estado para controlar nuestra pantalla de carga, su valor inicial va a ser false
+export const ItemDetailContainer = () => {
+
+    const [item, setItem] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        setLoading(true) //se cambia el valor a true para que muestre "cargando" mientras se espera la respues de la promise
+        setLoading(true)
         getStock(stock) //llamamos a nuestra funcion para que nos traiga el listado de productos
             .then((res) =>{
-                //al recibir respuesta guardamos lo obtenido en nuestra variable de estado items, mediante la funcion setItems
-                setItems(res)
+                //al recibir respuesta guardamos lo obtenido en nuestra variable de estado item, mediante la funcion setItem
+                setItem(res.find( (item)=> item.id === 2 )) //buscamos dentro de nuestro objeto el item con id igual a 2 en este caso
             })
             .catch((err)=>console.log(err)) //en caso de que haya un error este mismo se va a visualizar en la consola
             .finally(()=>{
@@ -21,14 +22,14 @@ export const ItemListContainer = () => {
                 setLoading(false)
             })
     }, [])
-
+    
   return (
-    <div className='item-list-container'>
+    <div className='item-detail-container'>
         {
             loading? //si loading es true muestra "cargando..." , sino muestra el listado de productos
             <div className='cargando'>Cargando...</div>
             :
-            <ItemList items={items} />
+            <ItemDetail {...item}/>
         }
     </div>
   )

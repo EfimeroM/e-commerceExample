@@ -5,7 +5,7 @@ export const ItemCount = ({stock, initial, onAdd}) => {
     const [cantidad, setCantidad] = useState(initial) //declaramos nuestra variable de estado con el valor inicial
  
     const handleRestar = () => {
-        if(cantidad > 0){
+        if(cantidad > 1){
             setCantidad(cantidad-1) //hacemos uso de nuestra funcion setCantidad para modificar la variable de estado 'cantidad'
         } 
     }
@@ -18,7 +18,7 @@ export const ItemCount = ({stock, initial, onAdd}) => {
 
     return (
         <div>
-            <button disabled={cantidad===0} onClick={handleRestar} className="btn btn-secondary">
+            <button disabled={cantidad===1} onClick={handleRestar} className="btn btn-secondary">
                 -
             </button>
             <span className="mx-3">{cantidad}</span>

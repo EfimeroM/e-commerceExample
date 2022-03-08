@@ -1,0 +1,33 @@
+.item-detail-container{
+    width: 100%;
+    height: 100vh;
+    border-top: 4px solid black;
+    .cargando{
+        padding: 10vh;
+        display: flex;
+        justify-content: center;
+    }
+    .item-detail{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        .portada{
+            width: 50%;
+            img{
+                width: 100%;
+            }
+        }
+        .detail{
+            width: 50%;
+            padding: 4vh;
+            h1{
+                padding: 2vh 0;
+                font-size: 30px;
+            }
+            h2{
+                padding: 3vh 0;
+                font-size: 25px;
+            }
+        }
+    }
+}
