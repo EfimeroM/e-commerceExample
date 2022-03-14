@@ -8,8 +8,9 @@ export const ItemDetail = ({title, description, price, imgUrl, stock}) => {
         </div>
         <div className='detail'>
             <h1>{title}</h1>
-            <h2>{description}</h2>
+            <h3>{description}</h3>
             <h2>${price}</h2>
+            <button>Agregar al carrito</button>
         </div>
     </div>
   )

@@ -10,12 +10,50 @@
             width: 100%;
             align-items: center;
             justify-content: center;
-            li{
-                list-style: none;
+            list-style: none;
+            .link{
                 padding: 1vw 4vh;
+                text-decoration: none;
+                color: black;
+                list-style: none;
                 &:hover{
                     border-bottom: 1px solid black;
                     cursor: pointer;
+                }
+                .title-sub-menu{
+                    color: black;
+                    text-decoration: none;
+                    padding: 2vh 1vh;
+                }
+            }
+            li{
+                .sub-menu-box{
+                    background-color: rgb(245, 245, 245);
+                    display: none;
+                    border: 1px solid black;
+                    position: absolute;
+                    width: 200px;
+                    margin: 0;
+                    padding: 0;
+                    top: 8.2vh;
+                    .sub-menu{
+                        color: black;
+                        text-decoration: none;
+                        width: 100%;
+                        padding: 1vh;
+                        &:hover{
+                            background-color: rgba(0, 0, 0, 0.068);
+                        }
+                    }
+                }
+                &:hover{
+                    .sub-menu-box{
+                        
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    }
                 }
             }
         }
